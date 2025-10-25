@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colegio Nuestra Señora del Rosario</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/logo192.png" sizes="192x192" type="image/png">
+  <link rel="icon" href="icons/logo512.png" sizes="512x512" type="image/png">
+  <link rel="apple-touch-icon" href="icons/logo192.png">
+
+  <style>
+    :root {
+      --primary-bg: #1e1e1e;
+      --sidebar-bg: #2a2a2a;
+      --card-bg: #2a2a2a;
+      --accent: #ffcb2b;
+      --text-color: #fff;
+      --border-color: #444;
+      --glow-stop-1: #ff69b4;
+      --glow-stop-2: #ffa07a;
+      --glow-stop-3: #ffff8c;
+      --glow-stop-4: #8bc34a;
+      --glow-stop-5: #03a9f4;
+    }
+    [data-theme="light"] {
+      --primary-bg: #fff;
+      --sidebar-bg: #f5f5f5;
+      --card-bg: #fff;
+      --accent: #e67e22;
+      --text-color: #000;
+      --border-color: #ccc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--primary-bg);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      overflow-y: auto;
+      color: var(--text-color);
+    }
+    .container {
+      background: var(--card-bg);
+      /* Diseño desktop por defecto */
+      width: 60%;
+      max-width: 800px;
+      margin: 40px auto;
+      text-align: center;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 8px 32px rgba(0,0,0,0.2);
+      animation: glow-colors 8s ease-in-out infinite;
+    }
+    .container h1 {
+      margin-bottom: 30px;
+      font-weight: 600;
+      font-size: 2em;
+    }
+    .logo {
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+      border-radius: 5px;
+      box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 8px 32px rgba(0,0,0,0.2);
+      animation: glow-colors 8s ease-in-out infinite;
+    }
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .buttons button {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      width: auto;
+      min-width: 200px;
+      max-width: 300px;
+      height: 50px;
+      font-size: 1em;
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    }
+    .buttons button:hover {
+      background: rgba(255,255,255,0.4);
+      transform: translateY(-3px);
+      animation: glow-btn 3s ease-in-out infinite;
+    }
+    @keyframes glow-colors {
+      0%, 100% { box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent), 0 8px 32px rgba(0,0,0,0.2); }
+      25% { box-shadow: 0 0 20px var(--glow-stop-1), 0 0 40px var(--glow-stop-1), 0 8px 32px rgba(0,0,0,0.2); }
+      50% { box-shadow: 0 0 20px var(--glow-stop-2), 0 0 40px var(--glow-stop-2), 0 8px 32px rgba(0,0,0,0.2); }
+      75% { box-shadow: 0 0 20px var(--glow-stop-3), 0 0 40px var(--glow-stop-3), 0 8px 32px rgba(0,0,0,0.2); }
+    }
+    @keyframes glow-btn {
+      0%, 100% { box-shadow: 0 0 15px var(--accent); }
+      50%       { box-shadow: 0 0 15px var(--glow-stop-1); }
+    }
+    @media (max-width: 768px) {
+      .container { 
+        padding: 20px;
+        width: 90%;
+        max-width: 900px;
+      }
+      .buttons button { 
+        width: 90%;
+        height: 45px; 
+        font-size: 0.9em;
+        max-width: 800px;
+      }
+      h1 { font-size: 1.5em; }
+      h2 { font-size: 1.2em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+      <h1>ESCUELA DE EDUCACION SECUNDARIA N°2</h1>
+    <img src="images/logo.png" alt="Logo" class="logo">
+    <div id="main-menu" class="buttons">
+      <button id="btn1">1°</button>
+      <button id="btn2">2°</button>
+      <button id="btn3">3°</button>
+      <button id="btn4">4°</button>
+      <button id="btn5">5°</button>
+      <button id="btn6">6°</button>
+      <button data-url="https://script.google.com/a/macros/abc.gob.ar/s/AKfycbw2VxBb_kqjTEqVHVHTdGEhaPIgOUd3bGe6_LtjDpFGsGv6NtNVrTvMvrVRnUiXH4a5JA/exec">INTENSIFICACION</button>
+      <button id="btn-install">INSTALAR APP</button>
+    </div>
+    <div id="submenu-1" class="buttons" style="display:none;">
+      <button id="btn1-1">1°A°</button>
+      <button id="btn1-2">1°B°</button>
+  
+      <button id="back1">Volver</button>
+    </div>
+    <!-- Submenu para 2° y 3° -->
+    <div id="submenu-2" class="buttons" style="display:none;">
+      <button id="btn2-1">2°A°</button>
+      <button id="btn2-2">2°B°</button>
+   
+      <button id="back2">Volver</button>
+    </div>
+    <div id="submenu-3" class="buttons" style="display:none;">
+      <button id="btn3-1">3°A°</button>
+      <button id="btn3-2">3°B°</button>
+      <button data-url="https://script.google.com/a/macros/abc.gob.ar/s/AKfycby1e1_IXNIKecJoh58_y6TV423jLYoAY9A1EHKvMD9nU6WJ-YHemn_rT30vpZXWwSdX/exec">3°A°</button>
+      <button data-url="https://script.google.com/a/macros/abc.gob.ar/s/AKfycbwwDABbyR33VhrsxDv57Asd9bcKFvfwFbwnjyxUeGbxIyTPXzY5U1DMgr-9z9dlr9ai0g/exec">3°B°</button>
+      <button id="back3">Volver</button>
+    </div>
+    <!-- Submenu para 4° -->
+    <div id="submenu-4" class="buttons" style="display:none;">
+      <button id="btn4-1">4°A°</button>
+      <button id="btn4-2">4°B°</button>
+      <button data-url="https://script.google.com/a/macros/abc.gob.ar/s/AKfycbw9K-CHfzpsW1Djc5bVNjpvCp5or-Ctr4h9WPtIIDa7vnLyTvMBlXA1TCVMTxOVwtab/exec">4°A°</button>
+      <button data-url="https://script.google.com/a/macros/abc.gob.ar/s/AKfycbzUEHtKzEZlkCXXuBPbYm6Fy9hTRFh9ynZLOUCv34FP8yziJKMif-IW6YmwLyQwXm5K/exec">4°B°</button>
+      <button id="back4">Volver</button>
+    </div>
+    <!-- Submenu para 5° -->
+    <div id="submenu-5" class="buttons" style="display:none;">
+      <button id="btn5-1">5°A°</button>
+      <button id="btn5-2">5°B°</button>
+      <button data-url="https://script.google.com/a/macros/abc.gob.ar/s/AKfycbz_5BTg9P2v9SIs4vYj5kU0qif5YxfIkzlaAUyNEcYXvLu-7wqlo9XuBseNRiH3TSMGkw/exec">5°A°</button>
+      <button data-url="https://script.google.com/a/macros/abc.gob.ar/s/AKfycbxKQRDlcsWkQEIX7HckfItgZfqxQRmyPytJEL_YNE-mM7yuujcccB_ZHzQYj-iywc6V/exec">5°B°</button>
+      <button id="back5">Volver</button>
+    </div>
+    <!-- Submenu para 6° -->
+    <div id="submenu-6" class="buttons" style="display:none;">
+      <button id="btn6-1">6°A°</button>
+      <button id="btn6-2">6°B°</button>
+      <button data-url="https://script.google.com/a/macros/abc.gob.ar/s/AKfycbw3OIMIIZiAvIIYaNWJENeKJtLIFmoCkLrCo12MRzxFIl672z0rd1JiJcARNyuMdwj-/exec">6°A°</button>
+      <button data-url="https://script.google.com/a/macros/abc.gob.ar/s/AKfycbxoETPaq9w3eJ0POnK1gSMvgBMCsQOlBJ7LmmCDixOf7yNEr_SiAN1_Ll8nXFkEuZVSPw/exec">6°B°</button>
+      <button id="back6">Volver</button>
+    </div>
+    <!-- Subject menus for each 1° item -->
+    <div id="subjects-1-1" class="buttons" style="display:none;">
+      <h2>Curso 1°A°</h2>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyeRFyw44OAwYrGYafZdMMpdg8kXyJH1Op3C6AtKHIsk-DaXvrm5YAho_EEb0obtAQ/exec">Ciencias Naturales</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxv_Pp9Stkz2-qEn1VW9AzAGnb0TspSW5f1TGyzH1EymEBSuk6I6eK-mRdAAVYs4n8/exec">Ciencias Sociales</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzftTtmjGEuwnYLIB-dHV_VscMJ1pA3wZlbbuLyOBuS2OImZSpeByLc78i3F7hWUSo/exec">Educacion Artistica</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzeg-RChlAEMkPMxCAmZGd7-EoSc9vVzGbVg25XO0XJgtFI9kEgU7kD9IRyQdeE-HA/exec">Educacion Fisica</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyfD6S6O4dMuzs76ecl7ZsDe3vRECPzbT8DY0SFu4UmTWPuinI07ZiXVvEnvQweBks/exec">Ingles</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyg0rpbQnqNSil1_GtKEeMU4olN3uZhKFQtXQFIbGEqVzAfVKrdrQavZGXvsPOV_d0/exec">Matemática</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyg4DmgF6W9Kc4zXbMA2bbUYv5VDF9NfT-9lrRazBRizuYwnUWMUUbqyDUXohxLhO4/exec">Prácticas del Lenguaje</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzaXTlhwjP171BIyY_m2e9Lr22MuA9ulO3-Zh-oF3uYbUVgYa_CRDchJhzjTMWZjiU/exec">Construcción de Ciudadania</button>
+      <button id="back-1-1">Volver</button>
+    </div>
+    <div id="subjects-1-2" class="buttons" style="display:none;">
+      <h2>Curso 1°B°</h2>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyalyZS5Hf05b6gatHpO5lFjgRPdlnCTnFxM5API4s76Kj8k98eBFf-1InAIMhevNc9/exec">Ciencias Naturales</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyUaQTG3EJIkyTnDr7DRIJtVD6vNgTi7AxYIRcXoT7TtnVPRmfAIlMI7YVkgsWthRF3/exec">Ciencias Sociales</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbz_02Led9nkhU27a1cdY2ypl2JG1AzlOiDN_dRtNFOwH88kveI7lorL4swpgQXvq74/exec">Educacion Artistica</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwzUb1gJVkjlc6XmgoSaTHopUD64oyfswPaDYKYSQl9mxK1YAxii7e3U1AssDJ4dFzX/exec">Educacion Fisica</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwp9zmUv1CDuzScu7-VvtCdQdnLUQo0d7qDpdlBVLF6CEd7Gk9m58xU-qr9g24iEmH3/exec">Ingles</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzxqkKlcS_JLMgnIdxfXnF5S83WyeYWeBSzQR-1rGNgeSddAEcYUGCJhIR75AThresV/exec">Matemática</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzGlLWqjEd4zf_9EcDmGMQT7oEq7E2EEdE3BhK9zb4B_XMw259BsbJVmUCRRCX67Zk9/exec">Prácticas del Lenguaje</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbw_o98vpId5Kk23UkY0I4MUMGaxsXbZY8UCYnvc-wTPVDxqROnIJMz8XvKAI7zLMq1Y/exec">Construcción de Ciudadania</button>
+      <button id="back-1-2">Volver</button>
+    </div>
+   
+    <!-- Subject menus for each 2° item -->
+    <div id="subjects-2-1" class="buttons" style="display:none;">
+      <h2>Curso 2°A°</h2>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbw2LRpniDISfJSoyuXxa97MjN9O4pAl443GgEro1gDruYUB-HO5Iogjsr6-JqQ-j4ObbQ/exec">Biología</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbybjdZO-ggZs0opVc2ltTZaKBnzN4Muif8bYNXZ0_p3zGDnmAPCaCTeA1b6emalDjcU0w/exec">Construcción de Ciudadanía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyjBJ3JWOtiy5Eg2EjKc6KtiC-0ulMuEoWe8z5y43cyKI3i-6fz5P96iFzkhlG8PkvWhQ/exec">Educación Artística</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzWSUGHSN4FTHIwEID4WVE6LIL2vmzQ2Pt3cpzZ8dAulo61E0u1sM77fRfJ936080fWPA/exec">Educación Física</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyzavU5p_TIWObPZzrBY8EwKYMw3kdw0JVWwMaJ1Jfg8wpi_kyuikPCwq_KTOYXX0mH7A/exec">Físico-Química</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycby0l3uc_zzhpAuvZ2z5POvGkVZ7rhI8NLiEY2GgVifeE_fDfScR-GAp2bR6Av5CFD3HGw/exec">Geografía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzT4vUsKLI8cG4V6Q929P75A48FKYCJd4wBHZNhUAD7gAZNmblTtd4kLrOsgU3ptLFv-w/exec">Historia</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzlAXjnLhYlRzi7clhYMg4yXrivfzydOzAJ-_tPbLaMul02zZEb4Xlx1f99J7CL1EsNEg/exec">Ingles</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxMMVaerkUV3hJRgetppKqSXAUzIK7JmSZXbi_4L9tg7QTrtHvM685_NEBYDWzmHHq_cg/exec">Matemática</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxwsYu2tru0Xm7bo2TWrUmzlK3MWjloTWqx2Uk9-1KphFVAzhqQS6JuB_isKQBCxF8IGw/exec">Prácticas del Lenguaje</button>
+      <button id="back-2-1">Volver</button>
+    </div>
+    <div id="subjects-2-2" class="buttons" style="display:none;">
+      <h2>Curso 2°B°</h2>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxZ_WTDK3aAAgn3FmbqCUfXFXRAArZ-OYk9S0GkA0kr3M4viH1-FaS2FEEh_Rn2YjAA/exec">Biología</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwDccEYZkqBP2ufjONGl5GWCx0oZL_cDlMcP_Qkc8hLkjvz4kj52gdtfAVOUv1feAg/exec">Construcción de Ciudadanía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycby8xWNyvSxyCk2PtM-M63msCaiIDVQxSSNQ5WfQ-zw2qjSmYzNFMeQLss-7Ij45lzL7/exec">Educación Artística</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbw3N78ghakEY5TS_XI5jYq_MvPADaWZ8ZT2BC02ELt41SjyIakMXR54znM325naVZKu/exec">Educación Física</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxwx1oP8LmhMo5yCHK49KVFGcZBJCpHcn4MsrBNzpV2BNdSDQoCPPekXeBy5b8iXFzw/exec">Físico-Química</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyLsVP_yPGn6hZkyK5NXJ5lZj9N9snWwYtXqIBrrBzPl7hmwhQ0-tTkewRAteqpzrWo/exec">Geografía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzo1K0JPfaELCdNxlj4EWnekX_66w1eT_HF3zGi-d-0VWPoHGCJcpzkNsfc5ghZ6g4L/exec">Historia</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzNilnYQsZaAjS1eLrcnzIOwtZKnTM7Lfu-Dl_qqVg-rqNpA6tVWwF62JVItSgLd4c5/exec">Ingles</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzU_sxtyf4bAomfLDWn0Gy46NhSvueyE5PmlnfaOL4lftqzoZFadJLgLThp8VVbIOkH/exec">Matemática</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwSRX3sh8Hbfa7DUaq2yt5a-JFVQMzgaFRmeDLr1U71L5abDQVK0_v7ohPFjvnULI38/exec">Prácticas del Lenguaje</button>
+      <button id="back-2-2">Volver</button>
+    </div>
+    
+    <!-- Subject menus para cada 3° -->
+    <div id="subjects-3-1" class="buttons" style="display:none;">
+      <h2>Curso 3°A°</h2>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbz0otzWiFCy7v_K27zjHX_pCA_FmpkTKooxVWOLy36wMJEgGx2LclfqitgHM_HPG1BG/exec">Biología</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxu1DvJY-_B75ucZZmVAgKyRhm6zWfrAS8nEx829JTDOXQVcUcPVxIGBfjE8LdKwzrN/exec">Construcción de Ciudadanía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycby7lO4spK65Q_vIJY52y-NgOXvx9YCbn67_1UL_OfSFg7sXh-Arp6UHvo_fg5p66Kdn/exec">Educación Artística</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyRIOwzSJdzJNdfenM1WH0M8dOxnQYHdytOvEpd1PpzJ1tNPxZeC-IrAqXtyoetTAjs/exec">Educación Física</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbz9lBcq38IX5D5BVkGd-vtsZ2kzfbgDU_XbUFNQeUCEa89hZImzJpYe2ihXPH9-1Qa3/exec">Físico-Química</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzESQSJlFitew9yg5DyqEQIOCKasTZUlvewevRPip1TkpZnx26_pYnBti_c4yuZVCLF/exec">Geografía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwctWdA0Oruasf7hp4GzMcCoU2y3gmNs1YRAOe6eZLIyaB7QL_hv4b0wbvGV2thbPHu/exec">Historia</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbx2VqWVW4DmRCv6qzUokmw8nME8lQAFcHA1WiKn0BDKMLDb3V_ayltDOMME87YHYE9G/exec">Ingles</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyO2kORJ8k8pt4MThVGwCeG9IgjZdkWP2sZbouQCLVvG0S2j-5ZDLcL_MBfhi_YGpoW/exec">Matemática</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzYAQQn-gxVqmw5nfPJxaHM7fMY_H1zeMJouhLaW7IXU6RdqtdNpU4rbCbqOMVlN47a/exec">Prácticas del Lenguaje</button>
+      <button id="back-3-1">Volver</button>
+    </div>
+    <div id="subjects-3-2" class="buttons" style="display:none;">
+      <h2>Curso 3°B°</h2>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyfX6w1W2VJEo0v4KuEaJPyvKVQNDF81_ZSS2P_AKXpszsIhuNycNZwKVfMz1tGCVuK/exec">Biología</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwXq2k4yk7xGj0fSC2oaUv4dGt02R-RQ5Qtmn0cMxbUvFDYhKrw3kswKzbwVgX4roY7/exec">Construcción de Ciudadanía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwFFZwGojAudsbCp14hpcG99h4WV_EVeOJgoDQfcoSG2yq_Xk3IdwPJXPITKRhG13XR/exec">Educación Artística</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyqo-YY6z_Mwat-4lH1canpq2_xnBb8ifqYhEVC08jWVKsnTwksr3UhHEIE44lwL5U/exec">Educación Física</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycby-Bdn_3cDPVOE6q4qyC8L3e8ZYAzOy2MD213TfRik9mhC3Ysn7f5G7fLiht6FE-TIy/exec">Físico-Química</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyNAcJiOVOHR6dxSvx3TpqPUxRX9G10p_couL29Vrwqk4uMspwx9QvYaX92NPPgKHx1/exec">Geografía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyaO5nNa4GGg8LFfRUKo0LA0UkThiMygaUo1ghG5Tp9a6PY-cbFzVmdmWFHIEKfzPLx/exec">Historia</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbw5Tyxo_YK2nbbWHFIt9JbOXpNLu9qgaypk2KaihYC1VRKVgGT7_u02UYGtPYa0R9Q/exec">Ingles</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycby7WyF7JPeQ8F2yYUCSX_Sgxo_ur-QA5BOI9L9i3mL-Ez3I2crhU_CX3KFLXF1diZpc/exec">Matemática</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzB89OIw0CHsJdVm8nluB-t64eJq5p1ngmQknw6Eo54Kp48PdJPt6khfUrK5xw5cfxd/exec">Prácticas del Lenguaje</button>
+      <button id="back-3-2">Volver</button>
+    </div>
+    
+    <!-- Subject menus para 4° items especificados -->
+    <div id="subjects-4-1" class="buttons" style="display:none;">
+      <h2>Curso 4°A°</h2>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyhS7Q7h-xuXELETVlSJtor4f-PZu7TgCUyLKGo4lS298Fgic7p4VfKCbXdhthSTBO3/exec">Literatura</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxh30tFleGpTMDR82fQlBDpYLqzOjamQCfdla33gHhyXmEyWZSt72RZzjBOoHwlDS2-/exec">Matemática</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxxT8Q3w-64zi0QTIA9dJQQ0i4UcoDV1RKupB9RCLwB1gBkZW0sAosZocqbQfjKZj5p/exec">Educación Física</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzvA9lc_j-EPA8C36ACYOs1lCcPXMFqRJXMtHZ0387N7vAFMP8nh8e2hDSzdqgVWeL9/exec">Inglés</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwMBdV-cfaShU0_wDjxCavaRGqVLRufW6BfPR9wS2gBvUTEDtodr1dncnwdBCFXkz48/exec">Nticx</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbx4roN5NX20_1U29fhiUgQ3K32sSi4h9YswdnszDUEku10ojsbIgYVzQB3wj69QS3P-/exec">Salud y Adolescencia</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycby0b0moHRwiZLwjxW2ApIjZ-JozgWpmp0zfh9Q4iPL0ImCpmqnxuDBMm3kMSIL9GK4n/exec">Introducción a la Física</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxR1Kk6j2kAHMnvfXwkjx3OZZckBa8H2mDkGSXXFVm9s73ervYr-l2KKpf0qiCGxqSb/exec">Biología</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxOUfG2ybiDDBtXtLSy-Ya4j0R1EovGt43RmqNsynA_h8bJ9Q-QSNJcNMKJ_JsAlaGN/exec">Historia</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwk_9qoAWKfpGkl1-KUze_TVzr_hjYgSioLHnPC3ngAqN-RrQdz_cmJQw61vTv3NRTd/exec">Geografía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwsi0eWKjHJwWQjcqjiutZZ0Co0L9lUuvj1-Ms20yZ_9P8WspE8zDZcYMQmhettn0W2/exec">Sistema de Información Contable</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbza3rKaRaTNNmrwEb5jWkmiBtgBEYQP_hyU3l6bkdWGCDlBtwaZzI5mYT1ZCHO8IbT7/exec">Teoría de las Organizaciones</button>
+      <button id="back-4-1">Volver</button>
+    </div>
+    <div id="subjects-4-2" class="buttons" style="display:none;">
+      <h2>Curso 4°B°</h2>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbx7Qeb66DrUIT-N6-E_wn-qoKVopAMHX20sQ7gEvAGkPwfDqxY9g0WUSty795_zduFW/exec">Literatura</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwrY-ztCN_Zp2dO02qGK6rZAHPjBaahlH5h2zplGNvqkb9GqqDgucTRsn23wyV_IJiW/exec">Matematica</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxNjpuj6rJINGGMKkvSawvtQxdJsFDb4qtfor1ooArMg-QGyZKQ3CGWq4Eu4jEsL875/exec">Educacion Fisica</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbz6nzjEI4sR1Z4myKYwzV21w7Jdr_DS6HCstnbreQF-mhcdD6XLBBzmr33tL9E9Rckf/exec">Inglés</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzQHkjr95vcOFDRUNVO_AohklUZ88czLU02lRy0KaLHyArho8_LwZ0PXtanAnEPJ-kP/exec">Nticx</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbw1M9sSw1uaFhEIYX4ybCfszFDY24tKPz4d1KeqfFfisYqSjEhRAJZplIXjt9Jt3PA9/exec">Salud y Adolescencia</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxXs8YiyQAR9pmCreAZB_8nZElnhVp1MAp1MkLGOrdDJsPyemT8GtSU2SJyI2vnS0eD/exec">Introducción a la Física</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzfZ3cGgJJ2odmuaOXlYnAT7FCPKil8uIncGADohI-xMU4J03wc2GE86cltuZKhgOUf/exec">Biología</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyuRSVK_u4d8kB_XEIfvldIxcMdcPLhaDTHsadDlF1jMGspKWD_OAE0JSE5IfKjA94s/exec">Historia</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbynNYbb2H39TGucnkRTjh8S7GWRYTpaZ2kNOCjI4WWyTJrCdg17Eh7d8QnKivy23xx9/exec">Geografía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbw5reU-pQQBsc1Zx0CKnTnKXliNPghPXd5QCYTMBxxasiJHPqWZVwLcf1-ZB00-tI5v/exec">Psicología</button>
+      <button id="back-4-2">Volver</button>
+    </div>
+   
+    <!-- Subject menus para 5° items especificados -->
+    <div id="subjects-5-1" class="buttons" style="display:none;">
+      <h2>Curso 5°A°</h2>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbw3VXctt-zu2OZJIODmIAmmP1PXVqYua2xGXvwBujY-zx_abWTjBluXZBh8Q5qlJ0yRRw/exec">Literatura</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwcCe0g03UsctSy6uUHM2ofCUFFSXkzAhRZ9-eYoqwmIuHdEQ8yVPsq2jB_o3YtzlZiAA/exec">Matemática</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwIleG_E8y_3pGYjz0S5U97cS78Spg9bvvnjID9tM4O0zN8qQh2fSIReNz7S-E5U1YGrw/exec">Educación Física</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbylUYMuGoP1B67gOWwYO1jprKbwY5Gp0eOL-UOcgrdlMDRTTCTmLyWm9rIcZbegvSID2A/exec">Inglés</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbw0nzda7zeRci9b3LCoTdwlspfent9JvUEC53ZSQdry7FXsyAmKvPCJZzjkTDUEdjPO/exec">Política y Ciudadanía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyKsH3emAp8Xv9kAxaLQsTFevjb26Q3mimdEuDM4ckRhq4olWujtrRfqcs-GJ4mRvrMsw/exec">Introducción a la Química</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzVwQ9nzJj3YwwrUbk25iRULGHkIHgNeEQ6bN3TOPQm2VJWtBi1NWVPUFI4g87qvxtI/exec">Historia</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxP77zvjn959Astg6whtlIT_UeZ5Fql-s8v0punc0XMxIUiXIi0eJpUsfVqik3TAeLuLw/exec">Geografía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwT06gxqXBOkrnT1haksjGQ-u6ERZ3d8KuN9K1EwjCxx0LY6csFogRKwv8aIGJpBkFWlw/exec">Elementos de Micro y Macro Economía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbz9YCWG4-la4MJ5oQupwiM0vUmCTD9ENNL-gGpAwMVp3wXRMpy8FjOXi_nKWLexlmzA2w/exec">Derecho</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbx7vHLMLLDpHBDbFlwUxTb8cbSHGHRqRHlMuHvlsBChHd0JGbYx2jOlUbBEuZDNIese/exec">Sistema de Información Contable</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbx55J-ph6THPkLkdjLK-9U6xPq6uYPFAg3OutChhCbf8TI5Y3gMh4S_jnQtu7c8N7oiDg/exec">Gestión Organizacional</button>
+      <button id="back-5-1">Volver</button>
+    </div>
+    <div id="subjects-5-2" class="buttons" style="display:none;">
+      <h2>Curso 5°B°</h2>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycby_btwEb3Gl8qP7ekQFalkk8TkUY8nutfMTts39KJFF487N8A-rkhiiPZxQhVQAwGTQhA/exec">Literatura</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyGEdhy3FZRN5S6bSftaKknQdN4zCUn5zT2nfXS2Bl7z08a7UxhkyxPWeNBqNfAmnCwVA/exec">Matematica</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxYRSpOABo-cQ4E83_a6A36PioNZMdapshKwCyjSNkf9HOsQRDykh49ctAqNAdJ25ChsQ/exec">Educacion Fisica</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzX1G4fbl1-oS3QBhmRc2L7IF4uWGP8I5KXo1t9F0al26wewYIKtpJcJLc-vs3ChJ9Tqw/exec">Inglés</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbzgdv9KZA5_UZ7-EDY-vFfw1eWT6Oao-FqlaaIK0N6MSWm2meN2CiZr1R9bFzYA8Rnypw/exec">Política y Ciudadanía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbx7Qna4Ia-B1B9athhGOEABZDve0QbxKrFdPjdzMit4EYUAFYm4PwBTkbQfRWP-mjHsgA/exec">Introducción a la Química</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxDP-07BZEM7nYN-cS7RXnNHpsQjPcfpWHtD8NR7zKHM-Tg-vnEKyvl_Azn6ofvhTwh6A/exec">Historia</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwOdgTo2XHNFoe4Z7Dp4whdTlREnmwRLYBtYr0OPhgoxMoeE_u6yBAOZ1CLSwZj2UZffA/exec">Comunicación, Cultura y Sociedad</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyGU2fyvaKYX_xTLyNZa-6PFx0zE9_gBicCDpUrRTFPi95R3yguMUOnPGUMyl1sHUqgbw/exec">Geografía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwqKkFMyl7kZceezrd8fvFpLZpb4-ItSip0WF3QnHH4YA4vnK2b5xWyk_OPBZR84sLnUQ/exec">Economía Política</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyjSNfHPBcnNVZQFWzjF0i3F_XDw_uDemotKMvOcAfq-iVNPNrhzPNeCCqA87Yp4AMwsA/exec">Sociología</button>
+      <button id="back-5-2">Volver</button>
+    </div>
+   
+    <!-- Subject menus para 6° items especificados -->
+    <div id="subjects-6-1" class="buttons" style="display:none;">
+      <h2>Curso 6°A°</h2>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwlRNsKm9bFKwvrlHGK9mCTDpzkK3RsqOL13IwHkZ5tklVHfPPijkaVWn8FfDMrvvnE/exec">Literatura</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbytJswWhMj2RAzKjUvvw8VpB7_DfXEO5QBYGePncbnKRMvt5xa9-tYVDmPa9FMO48hU/exec">Matemática</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwbDClCGTVReBQMnheRRlze1agx2k-89kAnb5hRfRQmjrPHPhYxKf0XWajIqvjtQiQz/exec">Educación Física</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyIn7nBu9deEUjiwJjyQu1Ke866SkgXESWVCQ9Zd_2TDgIIR_fuiZhfw5VbXRZBfq24/exec">Inglés</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwe3CWA5NxZio62hddGE5C_Eh7x2J14T-cWKSUN263yzs8NiQSIS28ns6_VV-dLn2O-/exec">Trabajo y Ciudadanía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbz_Yxuf9Q2VI9t-73FaPaUuApjkz7NXp2TMcNJZP-irZbZ631_Y55W4JNEAcNTQLJQP/exec">Filosofía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxGyqVadmiiGHgHjIAnXL508sXUWLoenmGWqZiPsODsai9tCFxniAkMfouZNeKAzzlu/exec">Arte</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxQLKzYqnVnYPQFT1t2mJEVlrs3Cx_On7XR9bbj6WMhTyJpfDuLhc7uTtOhCPvFPp58/exec">Economía Política</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbypxQ1JOvUBK9Is8muDnTmPefest7sp9n26oBjxg0-i-ONcHe7MO05r7OGjSGFlw0c/exec">Proyectos  Organizacionales</button>
+      <button id="back-6-1">Volver</button>
+    </div>
+    <div id="subjects-6-2" class="buttons" style="display:none;">
+      <h2>Curso 6°B°</h2>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwx70oc4w0MrdiEYRYPPHrN7Z3d43HMmITMlc0H5GlCAvXPWs381s0jwIR9C7yDwdA5/exec">Literatura</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwL5OPwzvGk6lBlD29StQcdObFkkaf2X5iGIACG_dGICQkgcCpEcOs-xWAImg358uIC/exec">Matemática</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbyU-MRchpTN-yndupYR1pWCyhBXjrM5t435ED1mSTfMdqAqIqFA1Y5O_KWov9iabk5J/exec">Educación Física</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwxNPVzV6P9NHARUk2Im9V2iUhmm6JvDyJZ38WsNuApPf5MlIf-oy38m2kHozQAZcUn/exec">Inglés</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwEhzErVVYna33yJmqyRHoYjDQUVvIoW6nuKyZCD6nFkjEU6lvJoDokMbteIPUMteJf/exec">Trabajo y Ciudadanía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxst-_GCT_TejqKAQV8PScV7LavkD3kK1Lkmu8hATO-V0R8IYJXXsCIdQxBaZwj1qG2/exec">Filosofía</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbxapbIF4s6RQbCSM5rf98AJCx4ErLP0Zt0LgLcB-MUHHwxRlx6KxkNdJVIIttLtsxfG/exec">Arte</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwz8k5aynbgCMIGY4jFqjygDYEOua0eryc7g0RVuAjOPXgxT9Fl2v5jWYk6PIf_4R-V/exec">Historia</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbwGiGCOPv07MoHljaBznFNX0L7YfNOJThBHFfD2wpumYr4sXWMpZGHGVBm7lF7frI0/exec"> Geografia</button>
+      <button data-url="https://script.google.com/a/macros/colegiodelrosariosf.edu.ar/s/AKfycbz1HlgXqHHW0k9rC1Yn6lTeSmISkWI7V1nj5IrhQtXY6A5tcVW_B5UmqsljVPxgOujf/exec"> Proyecto de Inv. en Cs</button>
+      <button id="back-6-2">Volver</button>
+    </div>
+    
+ 
+  </div>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Auto-unregister old service workers to avoid caching stale JS
+  // Service Worker deshabilitado para pruebas locales
+  // Para producción, usa un servidor web y descomenta el siguiente código:
+  /*
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister()));
+    
+    // Register new service worker
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('sw.js').then(function(registration) {
+        console.log('ServiceWorker registration successful');
+      }, function(err) {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
+  */
+  const mainMenu = document.getElementById('main-menu');
+  
+
+  // Grades 1–6
+  ['1','2','3','4','5','6'].forEach(function(n) {
+    const btn = document.getElementById('btn' + n);
+    const sub = document.getElementById('submenu-' + n);
+    const back = document.getElementById('back' + n);
+    if (btn && sub && back) {
+      btn.onclick = function() { mainMenu.style.display = 'none'; sub.style.display = 'flex'; };
+      back.onclick = function() { sub.style.display = 'none'; mainMenu.style.display = 'flex'; };
+    }
+  });
+  // Cursos principales (1°-6°)
+  ['1-1','1-2','1-3','1-4','1-5','1-6',
+   '2-1','2-2','2-3','2-4','2-5','2-6',
+   '3-1','3-2','3-3','3-4','3-5','3-6',
+   '4-1','4-2','4-3','4-4','4-5','4-7','4-8','4-10',
+   '5-1','5-2','5-3','5-4','5-5','5-7','5-8','5-10',
+   '6-1','6-2','6-3','6-4','6-5','6-10']
+  .forEach(function(code) {
+    const grade = code.split('-')[0];
+    const btn = document.getElementById('btn' + code);
+    const sub = document.getElementById('subjects-' + code);
+    const back = document.getElementById('back-' + code);
+    if (btn && sub && back) {
+      btn.onclick = function() {
+        document.getElementById('submenu-' + grade).style.display = 'none';
+        sub.style.display = 'flex';
+      };
+      back.onclick = function() {
+        sub.style.display = 'none';
+        document.getElementById('submenu-' + grade).style.display = 'flex';
+      };
+    }
+  });
+  // Navigation for data-url
+  document.querySelectorAll('button[data-url]').forEach(function(b) {
+    b.onclick = function() {
+      if (b.dataset.url) {
+        window.open(b.dataset.url, '_blank');
+      }
+    };
+  });
+
+  // Botón de instalación
+  const installBtn = document.getElementById('btn-install');
+  let deferredPrompt;
+  
+  // Estilos para el botón de instalación
+  installBtn.style.padding = '10px 20px';
+  installBtn.style.margin = '10px';
+  installBtn.style.borderRadius = '5px';
+  installBtn.style.backgroundColor = '#4CAF50';
+  installBtn.style.color = 'white';
+  installBtn.style.border = 'none';
+  installBtn.style.cursor = 'pointer';
+
+  // Evento para cuando el navegador ofrece la opción de instalar
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.style.display = 'block';
+
+    installBtn.onclick = () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('Usuario aceptó la instalación');
+            installBtn.style.display = 'none';
+          } else {
+            console.log('Usuario rechazó la instalación');
+          }
+          deferredPrompt = null;
+        });
+      }
+    };
+  });
+
+  // Mostrar el botón de instalación en todos los dispositivos
+  installBtn.style.display = 'inline-block';
+  // Código de submenu-preceptores eliminado
+});
+</script>
+</html>
